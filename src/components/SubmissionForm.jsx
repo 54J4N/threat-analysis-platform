@@ -1,26 +1,30 @@
 import React, { useState } from 'react';
+import { Button, TextField, Container } from '@mui/material';
 
 function SubmissionForm() {
-  const [inputValue, setInputValue] = useState('');
+  const [input, setInput] = useState('');
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Implement what happens when the form is submitted
-    console.log(inputValue);
+    console.log(input); // Placeholder for submission logic
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        Enter Data:
-        <input
-          type="text"
-          value={inputValue}
-          onChange={e => setInputValue(e.target.value)}
+    <Container>
+      <form onSubmit={handleSubmit}>
+        <TextField
+          label="Enter URL or IP"
+          variant="outlined"
+          fullWidth
+          margin="normal"
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
         />
-      </label>
-      <button type="submit">Submit</button>
-    </form>
+        <Button type="submit" variant="contained" color="primary">
+          Submit
+        </Button>
+      </form>
+    </Container>
   );
 }
 
